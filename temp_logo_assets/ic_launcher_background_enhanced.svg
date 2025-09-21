@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  ShivaayMusic App Icon - Enhanced Background 
+  Created by: Shivaay (Shivaay20005)
+  Copyright © 2024 Shivaay20005
+-->
+<svg width="108" height="108" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Clean background -->
+  <rect width="108" height="108" fill="url(#bgGradient)"/>
+  
+  <!-- Scattered triangular elements matching your design -->
+  <!-- Purple triangles -->
+  <polygon points="18,12 24,12 21,20" fill="#9c27b0" opacity="0.6"/>
+  <polygon points="88,20 94,20 91,28" fill="#673ab7" opacity="0.6"/>
+  <polygon points="15,75 21,75 18,83" fill="#9c27b0" opacity="0.6"/>
+  <polygon points="92,80 98,80 95,88" fill="#673ab7" opacity="0.6"/>
+  
+  <!-- Pink triangles -->
+  <polygon points="12,40 18,40 15,48" fill="#e91e63" opacity="0.6"/>
+  <polygon points="95,45 101,45 98,53" fill="#ad1457" opacity="0.6"/>
+  <polygon points="25,95 31,95 28,103" fill="#e91e63" opacity="0.6"/>
+  
+  <!-- Orange triangles -->
+  <polygon points="75,15 81,15 78,23" fill="#ff9800" opacity="0.6"/>
+  <polygon points="8,65 14,65 11,73" fill="#f57c00" opacity="0.6"/>
+  <polygon points="85,90 91,90 88,98" fill="#ff9800" opacity="0.6"/>
+  
+  <!-- Yellow triangles -->
+  <polygon points="35,8 41,8 38,16" fill="#ffc107" opacity="0.6"/>
+  <polygon points="90,55 96,55 93,63" fill="#ffb300" opacity="0.6"/>
+  <polygon points="20,85 26,85 23,93" fill="#ffc107" opacity="0.6"/>
+  
+  <!-- Additional small decorative elements -->
+  <polygon points="65,25 68,25 66.5,29" fill="#e91e63" opacity="0.4"/>
+  <polygon points="45,95 48,95 46.5,99" fill="#9c27b0" opacity="0.4"/>
+  <polygon points="12,25 15,25 13.5,29" fill="#ff9800" opacity="0.4"/>
+  <polygon points="95,70 98,70 96.5,74" fill="#ffc107" opacity="0.4"/>
+</svg>
