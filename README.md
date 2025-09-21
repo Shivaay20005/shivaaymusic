@@ -7,11 +7,7 @@
   ### Free High Quality Streaming Music App for Android
   
   [![Latest Version](https://img.shields.io/github/v/release/shivaay20005/shivaaymusic?style=flat-square&logo=github&color=0D1117&labelColor=161B22)](https://github.com/shivaay20005/shivaaymusic/releases)
-  [![License](https://img.shields.io/github/license/shivaay20005/shivaaymusic?style=flat-square&logo=gnu&color=2B3137&labelColor=161B22)](https://github.com/shivaay20005/shivaaymusic/blob/main/LICENSE)
-  [![Translation Status](https://badges.crowdin.net/shivaaymusic/localized.svg)](https://crowdin.com/project/shivaaymusic)
-  [![Android](https://img.shields.io/badge/Platform-Android%206.0+-3DDC84.svg?style=flat-square&logo=android&logoColor=white&labelColor=161B22)](https://www.android.com)
-  [![Stars](https://img.shields.io/github/stars/shivaay20005/shivaaymusic?style=flat-square&logo=github&color=yellow&labelColor=161B22)](https://github.com/shivaay20005/shivaaymusic/stargazers)
-  [![Forks](https://img.shields.io/github/forks/shivaay20005/shivaaymusic?style=flat-square&logo=github&color=blue&labelColor=161B22)](https://github.com/shivaay20005/shivaaymusic/network/members)
+
 </div>
 
 [![English](https://img.shields.io/badge/readme.md-english-blue?style=for-the-badge)](README.en.md)
