@@ -301,7 +301,7 @@ fun AboutScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 IconButton(
-                    onClick = { uriHandler.openUri("https://github.com/shivaay20005/shivaaymusic") }
+                    onClick = { uriHandler.openUri("https://github.com/shivaay20005") }
                 ) {
                     Icon(
                         modifier = Modifier.size(20.dp),
@@ -403,17 +403,17 @@ fun AboutScreen(
 fun UserCards(uriHandler: UriHandler) {
     Column {
         UserCard(
-            imageUrl = "https://avatars.githubusercontent.com/u/87346871?v=4",
+            imageUrl = "https://avatars.githubusercontent.com/u/208749772?s=400&u=e984ff02672986b1082b019d9ad47e9c61ad8741&v=4",
             name = "亗 Shivaay",
             role = "Lead Developer ",
             onClick = { uriHandler.openUri("https://github.com/shivaay20005") }
         )
 
         UserCard(
-            imageUrl = "https://avatars.githubusercontent.com/u/138934847?v=4",
+            imageUrl = "https://files.catbox.moe/6kwzs4.jpg",
             name = "\uD81A\uDD10 Prateek",
             role = " Icon designer",
-            onClick = { uriHandler.openUri("https://github.com/Prateek/") }
+            onClick = { uriHandler.openUri("https://github.com/Prateek6388-web/") }
         )
 
         // Hidden UserCard entries - commented out by Shivaay

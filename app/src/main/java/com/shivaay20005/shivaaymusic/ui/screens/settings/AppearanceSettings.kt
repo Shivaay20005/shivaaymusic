@@ -408,7 +408,7 @@ fun AppearanceSettings(
             modifier = Modifier.padding(16.dp),
             onRadiusSelected = { selectedRadius ->
                 // Here you can handle the selected radius value
-                Timber.tag("Thumbnail").d("Radio seleccionado: $selectedRadius")
+                Timber.tag("Thumbnail").d("Selected radius: $selectedRadius")
             }
         )
 
@@ -771,7 +771,7 @@ fun CustomAvatarSelector(
                     OutlinedButton(
                         onClick = {
                             coroutineScope.launch {
-                                // Limpiar archivos antiguos antes de restaurar
+                                // Clean up old files before restoring
                                 cleanupOldAvatars(context)
                                 avatarManager.saveCustomAvatarUri(null)
                             }
@@ -809,7 +809,7 @@ fun CustomAvatarSelector(
     }
 }
 
-/** Función mejorada para guardar la imagen en almacenamiento interno */
+/** Improved function to save the image to internal storage */
 private suspend fun saveImageToInternalStorage(
     context: Context,
     uri: Uri
@@ -838,14 +838,14 @@ private suspend fun saveImageToInternalStorage(
             compressedBitmap.recycle()
 
             Result.success(outputFile)
-        } ?: Result.failure(Exception("No se pudo abrir el archivo"))
+        } ?: Result.failure(Exception("Could not open the file"))
     } catch (e: Exception) {
         Log.e("CustomAvatarSelector", "Error saving image to internal storage", e)
         Result.failure(e)
     }
 }
 
-/** Función para redimensionar y comprimir bitmap */
+/** Function to resize and compress bitmap */
 private fun resizeAndCompressBitmap(
     bitmap: Bitmap,
     maxWidth: Int,
@@ -865,7 +865,7 @@ private fun resizeAndCompressBitmap(
     }
 }
 
-/** Función para limpiar archivos antiguos de avatar */
+/** Function to clean up old avatar files */
 private fun cleanupOldAvatars(context: Context) {
     try {
         context.filesDir.listFiles()?.forEach { file ->
@@ -882,7 +882,7 @@ private fun cleanupOldAvatars(context: Context) {
     }
 }
 
-/** Data class para manejar estados de UI (opcional para uso futuro) */
+/** Data class to handle UI states (optional for future use) */
 data class AvatarUiState(
     val isLoading: Boolean = false,
     val error: String? = null,

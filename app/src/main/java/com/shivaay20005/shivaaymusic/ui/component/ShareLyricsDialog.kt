@@ -411,12 +411,12 @@ fun ShareLyricsImageCustomizationDialog(
             Color(0xFFF5F5F5)
         )).distinct().take(8).mapIndexed { index, color ->
             color to when (color) {
-                Color(0xFF242424) -> "Oscuro"
-                Color(0xFF121212) -> "Negro profundo"
-                Color.White -> "Blanco"
-                Color.Black -> "Negro"
-                Color(0xFFF5F5F5) -> "Gris claro"
-                else -> "Paleta ${index + 1}"
+                Color(0xFF242424) -> "Dark"
+                Color(0xFF121212) -> "Deep black"
+                Color.White -> "White"
+                Color.Black -> "Black"
+                Color(0xFFF5F5F5) -> "Light gray"
+                else -> "Palette ${index + 1}"
             }
         }
 
@@ -426,10 +426,10 @@ fun ShareLyricsImageCustomizationDialog(
             Color(0xFF1DB954)
         )).distinct().take(8).mapIndexed { index, color ->
             color to when (color) {
-                Color.White -> "Blanco"
-                Color.Black -> "Negro"
-                Color(0xFF1DB954) -> "Verde Spotify"
-                else -> "Paleta ${index + 1}"
+                Color.White -> "White"
+                Color.Black -> "Black"
+                Color(0xFF1DB954) -> "Spotify green"
+                else -> "Palette ${index + 1}"
             }
         }
 
@@ -439,10 +439,10 @@ fun ShareLyricsImageCustomizationDialog(
             Color(0xFF1DB954)
         )).distinct().take(8).mapIndexed { index, color ->
             color to when {
-                color.alpha < 1f && color.copy(alpha = 1f) == Color.White -> "Blanco suave"
-                color.alpha < 1f && color.copy(alpha = 1f) == Color.Black -> "Negro suave"
-                color == Color(0xFF1DB954) -> "Verde Spotify"
-                else -> "Paleta ${index + 1}"
+                color.alpha < 1f && color.copy(alpha = 1f) == Color.White -> "Soft white"
+                color.alpha < 1f && color.copy(alpha = 1f) == Color.Black -> "Soft black"
+                color == Color(0xFF1DB954) -> "Spotify green"
+                else -> "Palette ${index + 1}"
             }
         }
 
@@ -556,7 +556,7 @@ fun ShareLyricsImageCustomizationDialog(
                         )
                     ) {
                         Text(
-                            text = "Atrás",
+                            text = "Back",
                             style = MaterialTheme.typography.labelLarge
                         )
                     }

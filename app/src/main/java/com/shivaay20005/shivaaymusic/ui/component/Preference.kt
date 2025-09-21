@@ -162,7 +162,7 @@ inline fun <reified T : Enum<T>> EnumListPreference(
     noinline valueText: @Composable (T) -> String,
     noinline onValueSelected: (T) -> Unit,
     isEnabled: Boolean = true,
-    values: List<T> = enumValues<T>().toList(), // Parámetro values agregado con valor predeterminado
+    values: List<T> = enumValues<T>().toList(), // values parameter added with default value
 ) {
     ListPreference(
         modifier = modifier,

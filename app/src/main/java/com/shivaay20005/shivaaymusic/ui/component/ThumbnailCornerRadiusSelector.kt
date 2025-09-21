@@ -70,20 +70,20 @@ import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
 
-// Extensión de contexto para DataStore
+// Extension of context for DataStore
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "app_settings")
 
 object AppConfig {
     private val THUMBNAIL_CORNER_RADIUS_KEY = floatPreferencesKey("thumbnail_corner_radius")
 
-    // Guardar el valor de thumbnail corner radius
+    // Save the thumbnail corner radius value
     suspend fun saveThumbnailCornerRadius(context: Context, radius: Float) {
         context.dataStore.edit { preferences ->
             preferences[THUMBNAIL_CORNER_RADIUS_KEY] = radius
         }
     }
 
-    // Obtener el valor de thumbnail corner radius, o un valor por defecto si no está presente
+    // Get the thumbnail corner radius value, or a default value if not present
     suspend fun getThumbnailCornerRadius(context: Context, defaultValue: Float = 16f): Float {
         return context.dataStore.data
             .map { preferences ->

@@ -73,7 +73,7 @@ import com.shivaay20005.shivaaymusic.R
 import com.shivaay20005.shivaaymusic.models.MediaMetadata
 import kotlinx.coroutines.launch
 
-// Mantener ColorPreset con nombres originales
+// Keep ColorPreset with original names
 data class ColorPreset(
     val name: String,
     val backgroundColor: Color,
@@ -83,19 +83,19 @@ data class ColorPreset(
     val gradientColors: List<Color>? = null
 )
 
-// colorPresets actualizado con mejores temas
+// colorPresets updated with better themes
 val colorPresets = listOf(
-    ColorPreset("Oscuro Clásico", Color(0xFF0A0A0A), Color(0xFFFFFFFF), Color(0xFFB0B0B0), true),
-    ColorPreset("Azul Nocturno", Color(0xFF0F172A), Color(0xFFF1F5F9), Color(0xFF94A3B8), true),
-    ColorPreset("Verde Esmeralda", Color(0xFF064E3B), Color(0xFFECFDF5), Color(0xFFA7F3D0), true),
+    ColorPreset("Classic Dark", Color(0xFF0A0A0A), Color(0xFFFFFFFF), Color(0xFFB0B0B0), true),
+    ColorPreset("Night Blue", Color(0xFF0F172A), Color(0xFFF1F5F9), Color(0xFF94A3B8), true),
+    ColorPreset("Emerald Green", Color(0xFF064E3B), Color(0xFFECFDF5), Color(0xFFA7F3D0), true),
     ColorPreset(
-        "Púrpura Profundo", Color(0xFF7C2D12), Color(0xFFFED7AA), Color(0xFFEA580C), true,
+        "Deep Purple", Color(0xFF7C2D12), Color(0xFFFED7AA), Color(0xFFEA580C), true,
         gradientColors = listOf(Color(0xFF7C2D12), Color(0xFFEA580C))
     ),
-    ColorPreset("Blanco Limpio", Color(0xFFFFFFFF), Color(0xFF0F172A), Color(0xFF64748B), false),
-    ColorPreset("Crema Suave", Color(0xFFFEF7ED), Color(0xFF431407), Color(0xFF78716C), false),
-    ColorPreset("Rosa Suave", Color(0xFFFFF1F2), Color(0xFF881337), Color(0xFFA21CAF), false),
-    ColorPreset("Gradiente Sunset", Color(0xFFF0F9FF), Color(0xFF0C4A6E), Color(0xFF0369A1), false)
+    ColorPreset("Clean White", Color(0xFFFFFFFF), Color(0xFF0F172A), Color(0xFF64748B), false),
+    ColorPreset("Soft Cream", Color(0xFFFEF7ED), Color(0xFF431407), Color(0xFF78716C), false),
+    ColorPreset("Soft Pink", Color(0xFFFFF1F2), Color(0xFF881337), Color(0xFFA21CAF), false),
+    ColorPreset("Sunset Gradient", Color(0xFFF0F9FF), Color(0xFF0C4A6E), Color(0xFF0369A1), false)
 )
 
 @Composable
@@ -250,7 +250,7 @@ fun LyricsImageCard(
 
         // Preview hint
         Text(
-            text = "La imagen se guardará en alta resolución",
+            text = "The image will be saved in high resolution",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
         )
@@ -285,13 +285,13 @@ private fun ModernControlsSection(
         ) {
             Column {
                 Text(
-                    text = "Compartir Letra",
+                    text = "Share Lyrics",
                     style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 Text(
-                    text = "Tema: ${selectedPreset.name}",
+                    text = "Theme: ${selectedPreset.name}",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
                 )
@@ -307,7 +307,7 @@ private fun ModernControlsSection(
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.expand_more),
-                        contentDescription = "Cambiar tema",
+                        contentDescription = "Change theme",
                         modifier = Modifier.size(20.dp)
                     )
                 }
@@ -328,7 +328,7 @@ private fun ModernControlsSection(
                     } else {
                         Icon(
                             painter = painterResource(id = R.drawable.image),
-                            contentDescription = "Guardar",
+                            contentDescription = "Save",
                             modifier = Modifier.size(20.dp)
                         )
                     }
