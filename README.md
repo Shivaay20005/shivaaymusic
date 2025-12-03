@@ -36,6 +36,8 @@
 - **Privacy Focus**: No data collection or tracking
 - **Customizable Interface**: Personalize your music experience
 - **Offline Capabilities**: Download and play music without internet connection
+- **Enhanced Stability**: Fixed critical issues during song play and improved overall app reliability
+- **Network Optimization**: Resolved various network connectivity issues for smoother streaming
 
 ---
 
@@ -50,6 +52,10 @@
 <tr>
 <td><strong>🎵 Ad-Free Playback</strong></td>
 <td>Enjoy music without advertising interruptions</td>
+</tr>
+<tr>
+<td><strong>✨ Quote Cards</strong></td>
+<td>Inspirational quote cards displayed during playback</td>
 </tr>
 <tr>
 <td><strong>🔄 Background Playback</strong></td>
@@ -106,6 +112,10 @@
 <tr>
 <td><strong>🎨 Dynamic Themes</strong></td>
 <td>The interface adapts to album cover colors</td>
+</tr>
+<tr>
+<td><strong>🇮🇳 Made in India Badge</strong></td>
+<td>Proudly displays "Made in India" certification</td>
 </tr>
 <tr>
 <td><strong>🌐 Multi-Language Support</strong></td>
