@@ -38,6 +38,8 @@
 - **Offline Capabilities**: Download and play music without internet connection
 - **Enhanced Stability**: Fixed critical issues during song play and improved overall app reliability
 - **Network Optimization**: Resolved various network connectivity issues for smoother streaming
+- **Navigation Crash Fix**: Enhanced error handling for seamless navigation
+- **Resource Optimization**: Fixed duplicate string resources for better performance
 
 ---
 
@@ -72,6 +74,14 @@
 <tr>
 <td><strong>📚 Library Management</strong></td>
 <td>Completely organize and manage your music collection</td>
+</tr>
+<tr>
+<td><strong>🔐 Verified User Badge</strong></td>
+<td>Display verified user status in profile</td>
+</tr>
+<tr>
+<td><strong>🔑 Complete Authentication</strong></td>
+<td>Full authentication UI with sign in/up capabilities</td>
 </tr>
 <tr>
 <td><strong>📱 Offline Mode</strong></td>
@@ -132,6 +142,31 @@
 <tr>
 <td><strong>🖼️ Cover Export</strong></td>
 <td>Save album covers in high resolution</td>
+</tr>
+<tr>
+<td><strong>😊 Mood-Based Music</strong></td>
+<td>Select music based on your current mood</td>
+</tr>
+<tr>
+<td><strong>🔥 Listening Streak</strong></td>
+<td>Track your daily listening habits</td>
+</tr>
+<tr>
+<td><strong>📝 Song Notes</strong></td>
+<td>Add personal notes and memories to songs</td>
+</tr>
+<tr>
+<td><strong>⏰ Smart Features</strong></td>
+<td>Sleep timer and focus mode for distraction-free listening</td>
+</tr>
+<tr>
+<td><strong>💭 Daily Quote Cards</strong></td>
+
+<td>100+ inspirational music quotes displayed during playback</td>
+</tr>
+<tr>
+<td><strong>📊 Music Journey</strong></td>
+<td>Visualize your musical journey and milestones</td>
 </tr>
 </table>
 
