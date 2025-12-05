@@ -90,22 +90,16 @@
 <td>Download content to listen without connection</td>
 </tr>
 </table>
+
 ### 📺 Player Styles / प्लेयर स्टाइल
 ShivaayMusic offers multiple player styles for different experiences!
 ShivaayMusic विभिन्न अनुभवों के लिए कई प्लेयर स्टाइल प्रदान करता है!
+
 | Style | Description | स्टाइल | विवरण |
 |-------|-------------|--------|-------|
-📺 **Vertical Reels Player** (Default) | TikTok-style immersive full-screen player | 
-🔔 **Download Notifications** | Get notified when downloads
-New Sections Added:
+| 📺 **Vertical Reels Player** (Default) | TikTok-style immersive full-screen player | वर्टिकल रील्स प्लेयर (डिफ़ॉल्ट) | TikTok-शैली का इमर्सिव पूर्ण-स्क्रीन प्लेयर |
+| 🔔 **Download Notifications** | Get notified when downloads complete | डाउनलोड नोटिफिकेशन | डाउनलोड पूर्ण होने पर सूचित करें |
 
-Player Styles section: Documents Vertical Reels Player (default), Classic Player, download button, more options menu, and background styles (Blur default, Gradient, Default)
-Explore Screen Features section: Moods & Genres, Podcast Categories, Featured Podcasts (all vertical layout)
-All bug fixes and new features from this PR
-UI improvements
-Performance improvements
-Enhanced Network Speed 
-Enhanched UI 
 ### Audio Enhancements
 <table>
 <tr>
@@ -178,7 +172,6 @@ Enhanched UI
 </tr>
 <tr>
 <td><strong>💭 Daily Quote Cards</strong></td>
-
 <td>100+ inspirational music quotes displayed during playback</td>
 </tr>
 <tr>
@@ -225,12 +218,10 @@ Enhanched UI
 
 - **© 2025 Shivaay20005 - All Rights Reserved**
 - This software is proprietary and protected by copyright law
--
 
 ✅ **ALLOWED:**
 - Download and use the official APK for personal use
 - Report bugs through official channels
-
 
 #### 📞 **Contact for Licensing:**
 For commercial licensing or modification requests, contact: **shivaay20005@gmail.com**
@@ -249,7 +240,6 @@ If you find value in **ShivaayMusic** and want to contribute to its continued de
 <div align="center">
   
 [![GitHub Sponsors](https://img.shields.io/badge/GitHub_Sponsors-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sponsors/shivaay20005)
-
 
 </div>
 
