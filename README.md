@@ -104,6 +104,7 @@ Explore Screen Features section: Moods & Genres, Podcast Categories, Featured Po
 All bug fixes and new features from this PR
 UI improvements
 Performance improvements
+Enhanced Network Speed 
 ### Audio Enhancements
 <table>
 <tr>
