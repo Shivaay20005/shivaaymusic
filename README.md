@@ -96,7 +96,7 @@ ShivaayMusic विभिन्न अनुभवों के लिए कई
 | Style | Description | स्टाइल | विवरण |
 |-------|-------------|--------|-------|
 📺 **Vertical Reels Player** (Default) | TikTok-style immersive full-screen player | 
-
+🔔 **Download Notifications** | Get notified when downloads
 
 ### Audio Enhancements
 <table>
