@@ -105,6 +105,7 @@ All bug fixes and new features from this PR
 UI improvements
 Performance improvements
 Enhanced Network Speed 
+Enhanched UI 
 ### Audio Enhancements
 <table>
 <tr>
