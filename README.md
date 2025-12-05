@@ -95,6 +95,8 @@ ShivaayMusic offers multiple player styles for different experiences!
 ShivaayMusic विभिन्न अनुभवों के लिए कई प्लेयर स्टाइल प्रदान करता है!
 | Style | Description | स्टाइल | विवरण |
 |-------|-------------|--------|-------|
+📺 **Vertical Reels Player** (Default) | TikTok-style immersive full-screen player | 
+
 
 ### Audio Enhancements
 <table>
