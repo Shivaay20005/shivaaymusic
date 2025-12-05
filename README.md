@@ -101,7 +101,9 @@ New Sections Added:
 
 Player Styles section: Documents Vertical Reels Player (default), Classic Player, download button, more options menu, and background styles (Blur default, Gradient, Default)
 Explore Screen Features section: Moods & Genres, Podcast Categories, Featured Podcasts (all vertical layout)
-
+All bug fixes and new features from this PR
+UI improvements
+Performance improvements
 ### Audio Enhancements
 <table>
 <tr>
