@@ -6,7 +6,8 @@ name: Sync Android and Windows release
 # publishes the tag, and deletes every older release/tag so only the newest
 # version remains.
 #
-# No secret is required: the build repository is public, and publishing here
+# The build repository is private, so reading its release requires the
+# SOURCE_TOKEN secret (a PAT with read access to it). Publishing here still
 # uses this repository's own GITHUB_TOKEN. The schedule is what makes this
 # automatic after every successful build.
 on:
@@ -36,6 +37,7 @@ concurrency:
 env:
   SOURCE_REPO: Shivaay20005/ShivaayMusic-main
   GH_TOKEN: ${{ github.token }}
+  SOURCE_TOKEN: ${{ secrets.SOURCE_TOKEN }}
   REQUESTED_VERSION: ${{ github.event.client_payload.version || inputs.version || '' }}
   FORCE: ${{ github.event.client_payload.force || inputs.force || 'false' }}
 
@@ -44,6 +46,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
+      - name: Check the source token
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${SOURCE_TOKEN:-}" ]]; then
+            echo "::error title=SOURCE_TOKEN missing::Add a PAT with read access to ${SOURCE_REPO} as SOURCE_TOKEN in this repository's secrets."
+            exit 1
+          fi
+
       - name: Resolve the newest source version
         id: version
         shell: bash
@@ -52,6 +63,7 @@ jobs:
           version="${REQUESTED_VERSION}"
           if [[ -z "$version" ]]; then
             version="$(curl -sSL -H 'Accept: application/vnd.github+json' \
+              -H "Authorization: Bearer ${SOURCE_TOKEN}" \
               "https://api.github.com/repos/${SOURCE_REPO}/releases/latest" \
               | sed -n 's/.*"tag_name": *"v\{0,1\}\([^"]*\)".*/\1/p' | head -n1)"
           fi
@@ -104,7 +116,7 @@ jobs:
           version="${{ steps.version.outputs.version }}"
           mkdir -p assets
           for attempt in $(seq 1 20); do
-            if gh release download "v${version}" --repo "$SOURCE_REPO" \
+            if GH_TOKEN="$SOURCE_TOKEN" gh release download "v${version}" --repo "$SOURCE_REPO" \
                  --pattern "ShivaayMusic-v${version}-*" --dir assets --clobber; then
               break
             fi
@@ -154,7 +166,8 @@ jobs:
             gh release create "$version" --repo "$GITHUB_REPOSITORY" \
               --title "ShivaayMusic v${version}" \
               --notes "ShivaayMusic v${version} - Android APK/AAB and Windows installer/portable, built and tested in ${SOURCE_REPO}." \
-              --latest
+              --latest || \
+              gh release view "$version" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1
             sleep 3
           fi
 
@@ -172,9 +185,9 @@ jobs:
               sleep 5
             done
           done
+          # `gh release edit` is the supported way to keep this release latest.
+          # PATCHing `/releases/tags/{tag}` returns 404: that route is GET-only.
           gh release edit "$version" --repo "$GITHUB_REPOSITORY" --latest
-          gh api -X PATCH "repos/${GITHUB_REPOSITORY}/releases/tags/${version}" \
-            -f draft=false -f prerelease=false >/dev/null
 
       - name: Verify the download URLs
         if: steps.version.outputs.version != '' && steps.state.outputs.skip != 'true'
