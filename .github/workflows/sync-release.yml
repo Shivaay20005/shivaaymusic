@@ -166,7 +166,8 @@ jobs:
             gh release create "$version" --repo "$GITHUB_REPOSITORY" \
               --title "ShivaayMusic v${version}" \
               --notes "ShivaayMusic v${version} - Android APK/AAB and Windows installer/portable, built and tested in ${SOURCE_REPO}." \
-              --latest
+              --latest || \
+              gh release view "$version" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1
             sleep 3
           fi
 
@@ -184,9 +185,9 @@ jobs:
               sleep 5
             done
           done
+          # `gh release edit` is the supported way to keep this release latest.
+          # PATCHing `/releases/tags/{tag}` returns 404: that route is GET-only.
           gh release edit "$version" --repo "$GITHUB_REPOSITORY" --latest
-          gh api -X PATCH "repos/${GITHUB_REPOSITORY}/releases/tags/${version}" \
-            -f draft=false -f prerelease=false >/dev/null
 
       - name: Verify the download URLs
         if: steps.version.outputs.version != '' && steps.state.outputs.skip != 'true'
