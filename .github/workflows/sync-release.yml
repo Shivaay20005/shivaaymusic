@@ -1,9 +1,10 @@
-name: Sync Android release
+name: Sync Android and Windows release
 
 # This repository owns its own tag + release. The workflow watches the build
-# repository (Shivaay20005/ShivaayMusic-main), pulls the tested Android assets
-# from its newest release, verifies the SHA-256 checksums, publishes the tag,
-# and deletes every older release/tag so only the newest version remains.
+# repository (Shivaay20005/ShivaayMusic-main), pulls every tested Android and
+# Windows asset from its newest release, verifies the SHA-256 checksums,
+# publishes the tag, and deletes every older release/tag so only the newest
+# version remains.
 #
 # No secret is required: the build repository is public, and publishing here
 # uses this repository's own GITHUB_TOKEN. The schedule is what makes this
@@ -16,7 +17,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version to sync (e.g. 1.0.14). Empty = newest source release.'
+        description: 'Version to sync (e.g. 1.0.9). Empty = newest source release.'
         required: false
         type: string
       force:
@@ -41,7 +42,7 @@ env:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - name: Resolve the newest source version
         id: version
@@ -64,7 +65,7 @@ jobs:
             exit 1
           fi
           echo "version=$version" >> "$GITHUB_OUTPUT"
-          echo "Syncing Android release ${version}"
+          echo "Syncing Android + Windows release ${version}"
 
       - name: Check whether this version is already complete
         id: state
@@ -82,7 +83,10 @@ jobs:
             "ShivaayMusic-v${version}-Android-x86_64.apk" \
             "ShivaayMusic-v${version}-Android-Universal.apk" \
             "ShivaayMusic-v${version}-Android.aab" \
-            "ShivaayMusic-v${version}-SHA256SUMS-Android.txt"; do
+            "ShivaayMusic-v${version}-SHA256SUMS-Android.txt" \
+            "ShivaayMusic-v${version}-Windows-Setup.exe" \
+            "ShivaayMusic-v${version}-Windows-Portable.zip" \
+            "ShivaayMusic-v${version}-SHA256SUMS-Windows.txt"; do
             [[ "$assets" == *"$name"* ]] || complete=false
           done
           if [[ "$complete" == "true" && "$FORCE" != "true" ]]; then
@@ -92,7 +96,7 @@ jobs:
             echo "skip=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Download and verify the Android assets
+      - name: Download and verify all assets
         if: steps.version.outputs.version != '' && steps.state.outputs.skip != 'true'
         shell: bash
         run: |
@@ -113,10 +117,14 @@ jobs:
             "ShivaayMusic-v${version}-Android-x86_64.apk" \
             "ShivaayMusic-v${version}-Android-Universal.apk" \
             "ShivaayMusic-v${version}-Android.aab" \
-            "ShivaayMusic-v${version}-SHA256SUMS-Android.txt"; do
+            "ShivaayMusic-v${version}-SHA256SUMS-Android.txt" \
+            "ShivaayMusic-v${version}-Windows-Setup.exe" \
+            "ShivaayMusic-v${version}-Windows-Portable.zip" \
+            "ShivaayMusic-v${version}-SHA256SUMS-Windows.txt"; do
             test -f "assets/${name}" || { echo "::error title=Missing asset::${name}"; exit 1; }
           done
           (cd assets && tr -d '\r' < "ShivaayMusic-v${version}-SHA256SUMS-Android.txt" | sha256sum -c -)
+          (cd assets && tr -d '\r' < "ShivaayMusic-v${version}-SHA256SUMS-Windows.txt" | sha256sum -c -)
 
       - name: Publish this version as the only release
         if: steps.version.outputs.version != '' && steps.state.outputs.skip != 'true'
@@ -145,7 +153,7 @@ jobs:
           if ! gh release view "$version" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             gh release create "$version" --repo "$GITHUB_REPOSITORY" \
               --title "ShivaayMusic v${version}" \
-              --notes "ShivaayMusic v${version} - Android APK/AAB, built and tested in ${SOURCE_REPO}." \
+              --notes "ShivaayMusic v${version} - Android APK/AAB and Windows installer/portable, built and tested in ${SOURCE_REPO}." \
               --latest
             sleep 3
           fi
@@ -168,13 +176,18 @@ jobs:
           gh api -X PATCH "repos/${GITHUB_REPOSITORY}/releases/tags/${version}" \
             -f draft=false -f prerelease=false >/dev/null
 
-      - name: Verify the download URL
+      - name: Verify the download URLs
         if: steps.version.outputs.version != '' && steps.state.outputs.skip != 'true'
         shell: bash
         run: |
           set -euo pipefail
           version="${{ steps.version.outputs.version }}"
-          url="https://github.com/${GITHUB_REPOSITORY}/releases/download/${version}/ShivaayMusic-v${version}-Android-arm64-v8a.apk"
-          code="$(curl -sL -o /dev/null -w '%{http_code}' -r 0-1023 "$url")"
-          echo "HTTP ${code} ${url}"
-          [[ "$code" == "200" || "$code" == "206" ]]
+          base="https://github.com/${GITHUB_REPOSITORY}/releases/download/${version}"
+          for name in \
+            "ShivaayMusic-v${version}-Android-arm64-v8a.apk" \
+            "ShivaayMusic-v${version}-Windows-Setup.exe" \
+            "ShivaayMusic-v${version}-Windows-Portable.zip"; do
+            code="$(curl -sL -o /dev/null -w '%{http_code}' -r 0-1023 "${base}/${name}")"
+            echo "HTTP ${code} ${base}/${name}"
+            [[ "$code" == "200" || "$code" == "206" ]] || exit 1
+          done
